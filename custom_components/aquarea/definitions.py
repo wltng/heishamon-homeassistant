@@ -1069,7 +1069,7 @@ def build_switches(mqtt_prefix: str) -> list[HeishaMonSwitchEntityDescription]:
             command_topic=f"{mqtt_prefix}commands/SetForceDefrost",
             name="Aquarea Defrost routine",
             entity_category=EntityCategory.CONFIG,
-            device_class=BinarySensorDeviceClass.HEAT,
+            device_class=BinarySensorDeviceClass.RUNNING,
             state=bit_to_bool,
         ),
         HeishaMonSwitchEntityDescription(
@@ -1245,14 +1245,14 @@ def build_binary_sensors(
             key=f"{mqtt_prefix}main/Internal_Heater_State",
             name="Aquarea Internal Heater State",
             state=bit_to_bool,
-            device_class=BinarySensorDeviceClass.RUNNING,
+            #device_class=BinarySensorDeviceClass.RUNNING,
         ),
         HeishaMonBinarySensorEntityDescription(
             heishamon_topic_id="TOP61",
             key=f"{mqtt_prefix}main/External_Heater_State",
             name="Aquarea External Heater State",
             state=bit_to_bool,
-            device_class=BinarySensorDeviceClass.RUNNING,
+            #device_class=BinarySensorDeviceClass.RUNNING,
         ),
         HeishaMonBinarySensorEntityDescription(
             heishamon_topic_id="TOP68",
